@@ -29,18 +29,18 @@ class _ImageUploadAppState extends ConsumerState<ImageUploadView> with WidgetsBi
 
     switch (state) {
       case AppLifecycleState.paused:
-        print('App in background - upload continuing');
+        debugPrint('App in background - upload continuing');
         break;
       case AppLifecycleState.resumed:
-        print('App resumed - checking upload status');
+        debugPrint('App resumed - checking upload status');
         uploader.resumeUpload();
         break;
       // case AppLifecycleState.inactive:
-      //   print('App resumed - checking upload status');
+      //   debugPrint('App resumed - checking upload status');
       //   uploader.resumeUpload();
       //   break;
       // case AppLifecycleState.detached:
-      //   print('App resumed - checking upload status');
+      //   debugPrint('App resumed - checking upload status');
       //   uploader.resumeUpload();
       //   break;
       default:
