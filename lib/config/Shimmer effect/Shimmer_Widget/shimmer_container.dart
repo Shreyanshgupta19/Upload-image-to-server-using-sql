@@ -25,11 +25,11 @@ class ShimmerContainer extends StatefulWidget {
   final double? radius;
 
   const ShimmerContainer({
-    Key? key,
+    super.key,
     required this.height,
     this.width,
     this.radius,
-  }) : super(key: key);
+  });
 
   @override
   State<ShimmerContainer> createState() => _ShimmerContainerState();
@@ -37,25 +37,25 @@ class ShimmerContainer extends StatefulWidget {
 
 class _ShimmerContainerState extends State<ShimmerContainer>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
+  late AnimationController controller;
+  late Animation<double> animation;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     )..repeat();
 
-    _animation = Tween<double>(begin: -2, end: 2).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOutSine),
+    animation = Tween<double>(begin: -2, end: 2).animate(
+      CurvedAnimation(parent: controller, curve: Curves.easeInOutSine),
     );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -84,7 +84,7 @@ class _ShimmerContainerState extends State<ShimmerContainer>
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: _animation,
+      animation: animation,
       builder: (context, child) {
         return Container(
           width: widget.width ?? double.infinity,
@@ -96,7 +96,7 @@ class _ShimmerContainerState extends State<ShimmerContainer>
               end: Alignment.bottomRight,
               stops: const [0.1, 0.3, 0.5, 0.7, 0.9],
               colors: _getGradientColors(context),
-              transform: GradientRotation(_animation.value),
+              transform: GradientRotation(animation.value),
             ),
           ),
         );
@@ -133,39 +133,38 @@ class ThemedShimmerContainer extends StatefulWidget {
   final List<Color>? customDarkColors;
 
   const ThemedShimmerContainer({
-    Key? key,
+    super.key,
     required this.height,
     this.width,
     this.radius,
     this.customLightColors,
     this.customDarkColors,
-  }) : super(key: key);
+  });
 
   @override
   State<ThemedShimmerContainer> createState() => _ThemedShimmerContainerState();
 }
 
-class _ThemedShimmerContainerState extends State<ThemedShimmerContainer>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
+class _ThemedShimmerContainerState extends State<ThemedShimmerContainer> with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> animation;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
     )..repeat();
 
-    _animation = Tween<double>(begin: -2, end: 2).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOutSine),
+    animation = Tween<double>(begin: -2, end: 2).animate(
+      CurvedAnimation(parent: controller, curve: Curves.easeInOutSine),
     );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -182,7 +181,7 @@ class _ThemedShimmerContainerState extends State<ThemedShimmerContainer>
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: _animation,
+      animation: animation,
       builder: (context, child) {
         return Container(
           width: widget.width ?? double.infinity,
@@ -194,7 +193,7 @@ class _ThemedShimmerContainerState extends State<ThemedShimmerContainer>
               end: Alignment.bottomRight,
               stops: const [0.1, 0.3, 0.5, 0.7, 0.9],
               colors: _getGradientColors(context),
-              transform: GradientRotation(_animation.value),
+              transform: GradientRotation(animation.value),
             ),
           ),
         );

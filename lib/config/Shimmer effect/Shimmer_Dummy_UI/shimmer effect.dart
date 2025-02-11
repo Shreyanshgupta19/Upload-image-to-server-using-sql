@@ -3,7 +3,7 @@ import 'package:upload_image_to_server_using_sql/config/Shimmer%20effect/Shimmer
 import 'package:upload_image_to_server_using_sql/config/Shimmer%20effect/Shimmer_Widget/shimmer_container.dart';
 
 class ShimmerFormLoading extends StatelessWidget {
-  const ShimmerFormLoading({Key? key}) : super(key: key);
+  const ShimmerFormLoading({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,6 @@ class ShimmerFormLoading extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 24),
 
                 // for Profile
                 ShimmerGroup(
@@ -27,6 +26,7 @@ class ShimmerFormLoading extends StatelessWidget {
                   columnMainAxisAlignment: MainAxisAlignment.center,
                   columnCrossAxisAlignment: CrossAxisAlignment.end,
                   insideChildren: [
+                    const SizedBox(height: 24),
                     buildShimmerField(height: 48, width: 48, radius: 100),
                     const SizedBox(height: 8),
                     buildShimmerLabel(),
@@ -36,30 +36,29 @@ class ShimmerFormLoading extends StatelessWidget {
                     buildShimmerField(height: 18, width: 150),
                     const SizedBox(height: 24),
                   ],
-
                 ),
 
-                // Name field shimmer
+                // Form field shimmer
+                buildShimmerLabel(),
+                const SizedBox(height: 8),
+                buildShimmerField(height: 48),
+                const SizedBox(height: 24),
+                buildShimmerLabel(),
+                const SizedBox(height: 8),
+                buildShimmerField(height: 48),
+                const SizedBox(height: 24),
                 buildShimmerLabel(),
                 const SizedBox(height: 8),
                 buildShimmerField(height: 48),
                 const SizedBox(height: 24),
 
-                // Email field shimmer
-                buildShimmerLabel(),
-                const SizedBox(height: 8),
-                buildShimmerField(height: 48),
-                const SizedBox(height: 24),
-
-                // Message field shimmer
-                buildShimmerLabel(),
-                const SizedBox(height: 8),
-                buildShimmerField(height: 48),
-                const SizedBox(height: 24),
+                // Camera field shimmer
                 buildShimmerLabel(),
                 const SizedBox(height: 8),
                 buildShimmerField(height: 80, width: 80),
                 const SizedBox(height: 24),
+
+                // Form field shimmer
                 buildShimmerLabel(),
                 const SizedBox(height: 8),
                 buildShimmerField(height: 48),
@@ -71,6 +70,7 @@ class ShimmerFormLoading extends StatelessWidget {
                   child: buildShimmerField(height: 48, width: 200),
                 ),
                 const SizedBox(height: 24),
+
               ],
             ),
           ),
@@ -80,7 +80,4 @@ class ShimmerFormLoading extends StatelessWidget {
   }
 
 }
-
-
-
 

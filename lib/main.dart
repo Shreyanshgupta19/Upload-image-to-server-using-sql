@@ -48,7 +48,7 @@ class MyApp extends ConsumerWidget {
           brightness: Brightness.dark,
         ),
       ),
-      home: ImageUploadView()  // ImageUploadView(), // ShimmerFormLoading(),
+      home: ShimmerFormLoading()  // ImageUploadView(), // ShimmerFormLoading(),
     );
   }
 }
