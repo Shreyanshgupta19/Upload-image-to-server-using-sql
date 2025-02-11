@@ -47,7 +47,7 @@ class _ImageUploadAppState extends ConsumerState<ImageUploadView> with WidgetsBi
         break;
     }
   }
-
+  
   @override
   Widget build(BuildContext context) {
     final uploadState = ref.watch(uploadProvider);
